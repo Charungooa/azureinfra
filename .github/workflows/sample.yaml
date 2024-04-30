@@ -1,13 +1,10 @@
 name: Deploy Azure Infrastructure
-
+# Trigger required
 on:
   push:
     branches:
       - main
-    paths:
-      - 'infra/**'
-  workflow_dispatch:
-
+# Jobs
 jobs:
   build:
     runs-on: ubuntu-latest
