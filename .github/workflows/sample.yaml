@@ -1,5 +1,5 @@
 name: Deploy Azure Infrastructure
-
+# Trigger required
 on:
   push:
     branches:
