@@ -1,5 +1,5 @@
-name: Deploy Azure Infrastructure
-# build or destroy
+name: Deploy or Destroy Azure Infrastructure
+
 on:
   push:
     branches:
@@ -7,15 +7,23 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: 'Action to perform (apply or destroy)'
+        description: 'Choose "apply" to deploy or "destroy" to remove resources'
         required: true
         default: 'apply'
 
 jobs:
-  build:
+  decision:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: Manual Approval Required
+        run: echo "Please manually trigger the workflow with the desired action (apply or destroy)."
+
+  build_or_destroy:
+    needs: decision
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment: production
-    if: github.event.inputs.action == 'apply' || github.event_name == 'push'
     steps:
     - name: Checkout repo
       uses: actions/checkout@v2
@@ -33,33 +41,11 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
-    - name: Terraform Plan
-      run: terraform plan -var-file=cvnet.tfvars
-
-    - name: Terraform Apply
-      run: terraform apply -var-file=cvnet.tfvars -auto-approve
-
-  destroy:
-    runs-on: ubuntu-latest
-    environment: production
-    if: github.event.inputs.action == 'destroy'
-    needs: build
-    steps:
-    - name: Checkout repo
-      uses: actions/checkout@v2
-
-    - name: Set up Azure credentials
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Set up Terraform
-      uses: hashicorp/setup-terraform@v1
-      with:
-        terraform_version: '1.0.0'
-
-    - name: Terraform Init
-      run: terraform init
-
-    - name: Terraform Destroy
-      run: terraform destroy -var-file=cvnet.tfvars -auto-approve
+    - name: Conditionally run Terraform Plan and Apply or Destroy
+      run: |
+        if [ "${{ github.event.inputs.action }}" == "apply" ]; then
+          terraform plan -var-file=cvnet.tfvars
+          terraform apply -var-file=cvnet.tfvars -auto-approve
+        elif [ "${{ github.event.inputs.action }}" == "destroy" ]; then
+          terraform destroy -var-file=cvnet.tfvars -auto-approve
+        fi
