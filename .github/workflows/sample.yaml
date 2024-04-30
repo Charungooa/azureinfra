@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'infra/**'
-
+# Jobs
 jobs:
   build:
     runs-on: ubuntu-latest
