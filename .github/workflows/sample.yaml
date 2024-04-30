@@ -1,5 +1,5 @@
 name: Deploy Azure Infrastructure
-
+# build or destroy
 on:
   push:
     branches:
