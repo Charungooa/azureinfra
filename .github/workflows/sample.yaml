@@ -1,5 +1,5 @@
 name: Deploy or Destroy Azure Infrastructure
-
+# description: This yaml desides whther to deploy or to destroy the resources
 on:
   push:
     branches:
