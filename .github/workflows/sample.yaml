@@ -3,16 +3,16 @@ name: Deploy or Destroy Azure Infrastructure
 on:
   push:
     branches:
-      - main
+      - staging-branch
   workflow_dispatch:
     inputs:
       action:
-        description: 'Choose "apply" to deploy or "destroy" to remove resources'
+        description: 'Destroy the resources'
         required: true
-        default: 'apply'
+        default: 'destroy'
 
 jobs:
-  build_or_destroy:
+  destroy:
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -32,17 +32,6 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
-    - name: Conditionally run Terraform Plan and Apply or Destroy
-      run: |
-        echo "Action: ${{ github.event.inputs.action }}"
-        if [[ "${{ github.event.inputs.action }}" == "apply" ]]; then
-          echo "Running Terraform Apply..."
-          terraform plan -var-file=cvnet.tfvars
-          terraform apply -var-file=cvnet.tfvars -auto-approve
-        elif [[ "${{ github.event.inputs.action }}" == "destroy" ]]; then
-          echo "Running Terraform Destroy..."
-          terraform destroy -var-file=cvnet.tfvars -auto-approve
-        else
-          echo "No valid action provided"
-        fi
-      shell: bash
+    - name: Terraform Destroy
+      run: terraform destroy -var-file=cvnet.tfvars -auto-approve
+
