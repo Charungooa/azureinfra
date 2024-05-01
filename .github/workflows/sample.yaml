@@ -1,4 +1,4 @@
-name: Deploy or Destroy Azure Infrastructure
+foname: Deploy or Destroy Azure Infrastructure
 
 on:
   push:
@@ -32,17 +32,8 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
-    - name: Conditionally run Terraform Plan and Apply or Destroy
-      run: |
-        echo "Action: ${{ github.event.inputs.action }}"
-        if [[ "${{ github.event.inputs.action }}" == "apply" ]]; then
-          echo "Running Terraform Apply..."
-          terraform plan -var-file=cvnet.tfvars
-          terraform apply -var-file=cvnet.tfvars -auto-approve
-        elif [[ "${{ github.event.inputs.action }}" == "destroy" ]]; then
-          echo "Running Terraform Destroy..."
-          terraform destroy -var-file=cvnet.tfvars -auto-approve
-        else
-          echo "No valid action provided"
-        fi
-      shell: bash
+    - name: Terraform Plan
+      run: terraform plan -var-file=cvnet.tfvars
+    
+    - name: Terraform Apply
+      run: terraform apply -var-file=cvnet.tfvars --auto-approve
