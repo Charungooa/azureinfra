@@ -1,5 +1,6 @@
+# removed the decision section as it does not work for github actions for approval
 name: Deploy or Destroy Azure Infrastructure
-# description: This yaml desides whther to deploy or to destroy the resources
+
 on:
   push:
     branches:
@@ -12,16 +13,7 @@ on:
         default: 'apply'
 
 jobs:
-  decision:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-    steps:
-      - name: Manual Approval Required
-        run: echo "Please manually trigger the workflow with the desired action (apply or destroy)."
-
   build_or_destroy:
-    needs: decision
-    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment: production
     steps:
