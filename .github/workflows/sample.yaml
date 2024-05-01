@@ -1,4 +1,3 @@
-# removed the decision section as it does not work for github actions for approval
 name: Deploy or Destroy Azure Infrastructure
 
 on:
@@ -35,9 +34,15 @@ jobs:
 
     - name: Conditionally run Terraform Plan and Apply or Destroy
       run: |
-        if [ "${{ github.event.inputs.action }}" == "apply" ]; then
+        echo "Action: ${{ github.event.inputs.action }}"
+        if [[ "${{ github.event.inputs.action }}" == "apply" ]]; then
+          echo "Running Terraform Apply..."
           terraform plan -var-file=cvnet.tfvars
           terraform apply -var-file=cvnet.tfvars -auto-approve
-        elif [ "${{ github.event.inputs.action }}" == "destroy" ]; then
+        elif [[ "${{ github.event.inputs.action }}" == "destroy" ]]; then
+          echo "Running Terraform Destroy..."
           terraform destroy -var-file=cvnet.tfvars -auto-approve
+        else
+          echo "No valid action provided"
         fi
+      shell: bash
