@@ -8,6 +8,7 @@ data "azurerm_resource_group" "existing_rgp" {
   
 }
 
+# this is the resource block
 resource "azurerm_virtual_network" "vnet2" {
   name                = "${var.vnetname}-vnet"
   location            = data.azurerm_resource_group.existing_rgp.location
