@@ -1,4 +1,4 @@
-foname: Deploy or Destroy Azure Infrastructure
+name: Deploy or Destroy Azure Infrastructure
 
 on:
   push:
