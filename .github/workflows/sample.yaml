@@ -1,5 +1,5 @@
 name: Deploy or Destroy Azure Infrastructure
-
+# this file is for destroying resources
 on:
   push:
     branches:
