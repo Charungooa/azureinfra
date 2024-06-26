@@ -3,9 +3,9 @@ provider "azurerm" {
 
 }
 
-data "azurerm_resource_group" "existing_rgp" {
-  name = "${var.resource-group}"
-  
+resource "azurerm_resource_group" "existing_rgp" {
+   name = var.resource-group
+   location = "eastus"
 }
 
 # this is the resource block
