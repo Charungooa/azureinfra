@@ -32,7 +32,7 @@ jobs:
       # Step 3: Pull the Docker image using Podman
       - name: Pull Docker Image with Podman
         run: |
-          podman pull docker.io/library/my-app-image:latest
+          podman pull docker.io/library/alpine:latest
 
       # Step 4: Scan the Docker image using Trivy
       - name: Scan Docker Image with Trivy
