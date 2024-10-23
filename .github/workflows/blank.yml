@@ -38,4 +38,4 @@ jobs:
       - name: Scan Docker Image with Trivy
         run: |
           podman images  # Verify the image exists
-          trivy image --skip-update my-app-image:latest
+          trivy image my-app-image:latest
