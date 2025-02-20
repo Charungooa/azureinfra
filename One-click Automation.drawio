@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 Edg/133.0.0.0" version="26.0.15">
+  <diagram name="Page-1" id="b8KdqH9VCFGAs0DvuCbK">
+    <mxGraphModel dx="14386" dy="18055" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-1" value="Azure Subscription" style="rounded=1;whiteSpace=wrap;fillColor=#D9E3F0;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="100" y="50" width="800" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-2" value="Resource Group (Dev)" style="rounded=1;whiteSpace=wrap;fillColor=#B3C6E7;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="150" y="150" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-3" value="Resource Group (Stage)" style="rounded=1;whiteSpace=wrap;fillColor=#B3C6E7;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="400" y="150" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-4" value="Resource Group (Prod)" style="rounded=1;whiteSpace=wrap;fillColor=#B3C6E7;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="650" y="150" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-5" value="Key Vault (Dev)" style="rounded=1;whiteSpace=wrap;fillColor=#C9DAF8;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="175" y="230" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-6" value="Key Vault (Stage)" style="rounded=1;whiteSpace=wrap;fillColor=#C9DAF8;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="425" y="230" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-7" value="Key Vault (Prod)" style="rounded=1;whiteSpace=wrap;fillColor=#C9DAF8;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="675" y="230" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-8" value="AKS (Dev)" style="rounded=1;whiteSpace=wrap;fillColor=#A4C2F4;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="175" y="300" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-9" value="AKS (Stage)" style="rounded=1;whiteSpace=wrap;fillColor=#A4C2F4;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="425" y="300" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-10" value="AKS (Prod)" style="rounded=1;whiteSpace=wrap;fillColor=#A4C2F4;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="675" y="300" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-11" value="GitHub Organization" style="rounded=1;whiteSpace=wrap;fillColor=#FAD7A0;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="300" y="370" width="400" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-12" value="App Repo (dev.yml)" style="rounded=1;whiteSpace=wrap;fillColor=#F7C6C7;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="280" y="570" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-13" value="Flux Repo (GitOps)" style="rounded=1;whiteSpace=wrap;fillColor=#F7C6C7;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="575" y="570" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-14" value="FluxCD on each AKS" style="rounded=1;whiteSpace=wrap;fillColor=#A4C2F4;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="410" y="650" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-15" edge="1" parent="1" source="6do_lR3RQcfjnCAyMAOx-11" target="6do_lR3RQcfjnCAyMAOx-12" />
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-16" edge="1" parent="1" source="6do_lR3RQcfjnCAyMAOx-11" target="6do_lR3RQcfjnCAyMAOx-13" />
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-17" edge="1" parent="1" source="6do_lR3RQcfjnCAyMAOx-13" target="6do_lR3RQcfjnCAyMAOx-14" />
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-18" edge="1" parent="1" source="6do_lR3RQcfjnCAyMAOx-14" target="6do_lR3RQcfjnCAyMAOx-8" />
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-19" edge="1" parent="1" source="6do_lR3RQcfjnCAyMAOx-14" target="6do_lR3RQcfjnCAyMAOx-9" />
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-20" edge="1" parent="1" source="6do_lR3RQcfjnCAyMAOx-14" target="6do_lR3RQcfjnCAyMAOx-10" />
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.56;entryY=-0.04;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="6do_lR3RQcfjnCAyMAOx-11" target="6do_lR3RQcfjnCAyMAOx-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="470" y="530" as="sourcePoint" />
+            <mxPoint x="520" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-22" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.378;entryY=-0.013;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="6do_lR3RQcfjnCAyMAOx-11" target="6do_lR3RQcfjnCAyMAOx-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="566" y="440" as="sourcePoint" />
+            <mxPoint x="480" y="488" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6do_lR3RQcfjnCAyMAOx-23" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;Terraform in github creates following repos&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="435" y="470" width="140" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
